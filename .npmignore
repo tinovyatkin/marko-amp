@@ -7,3 +7,4 @@ npm-debug.log
 *.test.js
 .travis.yml
 *.marko.js
+marko.json
