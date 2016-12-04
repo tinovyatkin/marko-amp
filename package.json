@@ -1,0 +1,77 @@
+{
+  "name": "marko-amp",
+  "version": "0.0.1",
+  "description": "Marko taglib for Accelerated Mobile Pages custom tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest && eslint *.js --ignore-path .gitignore && remark . --quiet --frail",
+    "release": "npmpub",
+    "postinstall": "node ./scripts/extend-marko-json.js"
+  },
+  "engines": {
+    "node": "^6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinovyatkin/marko-amp.git"
+  },
+  "peerDependencies": {
+    "marko": "^4.0.0-beta.2"
+  },
+  "keywords": [
+    "markojs",
+    "amphtml",
+    "amp",
+    "marko",
+    "taglib",
+    "html",
+    "template",
+    "templating",
+    "custom",
+    "tags"
+  ],
+  "author": "tinovyatkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinovyatkin/marko-amp/issues"
+  },
+  "homepage": "https://github.com/tinovyatkin/marko-amp#readme",
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-plugin-jest": "^1.0.0",
+    "jest": "^17.0.3",
+    "marko": "^4.0.0-beta.2",
+    "npmpub": "^3.1.0",
+    "remark-cli": "^2.1.0",
+    "remark-preset-lint-consistent": "^1.0.0",
+    "remark-preset-lint-recommended": "^1.0.0"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "jest"
+    ],
+    "extends": "eslint:recommended",
+    "rules": {
+      "jest/no-exclusive-tests": 2,
+      "jest/no-identical-title": 2
+    },
+    "env": {
+      "jest": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    }
+  },
+  "remarkConfig": {
+    "presets": [
+      "lint-recommended",
+      "lint-consistent"
+    ]
+  }
+}
