@@ -1,7 +1,10 @@
 'use strict';
 
-const { oneLine } = require('common-tags');
-const tagData = require('../../marko.json').tags['amp-img'];
+const path = require('path');
+
+const tagData = require(path.resolve(__dirname, '../../marko.json')).tags[
+  'amp-img'
+];
 
 function renderAmpImg(input = {}, dontClose) {
   const attributes = [];
