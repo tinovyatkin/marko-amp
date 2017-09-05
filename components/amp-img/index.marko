@@ -1,0 +1,22 @@
+import ampImgRenderer from './amp-img';
+
+<!-- if <amp-img> has nested tags then we will output picture element, otherwise it will be an IMG -->
+$ const { src, srcset, sizes, alt = "", height, width, layout, heights, media, class: classList } = input;
+<!-- currently only WebP image must be acompained by type attribute at <picture> <source> -->
+$ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
+
+<if(out.global.amp)>
+  $!{ampImgRenderer(input, !!input.renderBody)}
+  <if(input.renderBody)>
+    <!-- we have two nested componenets -->
+    <include(input) />
+    $!{'</amp-img>'}
+  </if>
+</if>
+<else>
+  <picture if(input.renderBody) class=classList>
+    <source type=type srcset=(srcset || src) sizes=sizes media=media>
+    <include(input) />
+  </picture>
+  <img else src=src srcset=srcset sizes=sizes alt=alt height=height width=width class=classList />
+</else>

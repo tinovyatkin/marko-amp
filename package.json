@@ -5,18 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "jest && eslint *.js --ignore-path .gitignore && remark . --quiet --frail",
-    "release": "npmpub",
-    "postinstall": "node ./scripts/extend-marko-json.js"
+    "release": "npmpub"
   },
   "engines": {
-    "node": "^6"
+    "node": "^8"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinovyatkin/marko-amp.git"
   },
   "peerDependencies": {
-    "marko": "^4.0.0-beta.2"
+    "marko": "^4"
   },
   "keywords": [
     "markojs",
@@ -37,41 +36,49 @@
   },
   "homepage": "https://github.com/tinovyatkin/marko-amp#readme",
   "devDependencies": {
-    "eslint": "^3.11.1",
-    "eslint-plugin-jest": "^1.0.0",
-    "jest": "^17.0.3",
-    "marko": "^4.0.0-beta.2",
+    "@destinationstransfers/eslint-config": "^1.0.2",
+    "eslint": "^4.6.1",
+    "eslint-plugin-jest": "^21.0.0",
+    "eslint-plugin-node": "^5.1.1",
+    "jest": "^21.0.1",
+    "marko": "^4.4.28",
     "npmpub": "^3.1.0",
-    "remark-cli": "^2.1.0",
-    "remark-preset-lint-consistent": "^1.0.0",
-    "remark-preset-lint-recommended": "^1.0.0"
+    "remark-cli": "^4.0.0",
+    "remark-preset-lint-consistent": "^2.0.1",
+    "remark-preset-lint-recommended": "^3.0.1"
   },
   "eslintConfig": {
     "plugins": [
-      "jest"
+      "node"
     ],
-    "extends": "eslint:recommended",
-    "rules": {
-      "jest/no-exclusive-tests": 2,
-      "jest/no-identical-title": 2
-    },
+    "extends": [
+      "@destinationstransfers",
+      "plugin:node/recommended"
+    ],
     "env": {
-      "jest": true,
-      "es6": true,
-      "node": true
+      "shared-node-browser": true
     },
     "parserOptions": {
-      "ecmaVersion": 2017,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "modules": true
-      }
+      "sourceType": "script"
+    },
+    "rules": {
+      "prefer-object-spread/prefer-object-spread": "off"
     }
   },
   "remarkConfig": {
     "presets": [
       "lint-recommended",
       "lint-consistent"
+    ]
+  },
+  "dependencies": {
+    "common-tags": "^1.4.0"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "testMatch": [
+      "**/*.test.js"
     ]
   }
 }
