@@ -16,7 +16,8 @@ function renderAmpImg(input = {}, dontClose) {
   // getting attributes names
   for (const attr in tagData.attributes) {
     if (attr in input) {
-      attributes.push(`${attr}="${input[attr]}"`);
+      if (typeof input[attr] === 'boolean') attributes.push(attr);
+      else attributes.push(`${attr}="${input[attr]}"`);
     }
   }
   // if (fallback) attributes.push('fallback');
