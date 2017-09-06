@@ -1,0 +1,17 @@
+{
+  "@src": "string",
+  "@srcset": "string",
+  "@sizes": "string",
+  "@alt": "string",
+  "@attribution": "string",
+  "@height": "string",
+  "@width": "string",
+  "@layout": "string",
+  "@heights": "string",
+  "@media": "string",
+  "@noloading": "string",
+  "@on": "string",
+  "@class": "string",
+  "@fallback": "expression",
+  "@*": "string"
+}
