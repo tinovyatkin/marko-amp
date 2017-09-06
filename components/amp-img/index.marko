@@ -1,22 +1,74 @@
-import ampImgRenderer from './amp-img';
 
+static {
+  const ampAttrs = {
+    // <amp-img> attrs:
+    'src': true,
+    'srcset': true,
+    'sizes': true,
+    'alt': true,
+    'attribution': true,
+    'height': true,
+    'width': true,
+
+    // Common AMP attributes:
+    'fallback': true,
+    'heights': true,
+    'layout': true,
+    'media': true,
+    'noloading': true,
+    'on': true,
+    'placeholder': true,
+  };
+  // We just need to list out the attributes that are common with
+  // the <amg-img> attributes since unrecognized attributes will
+  // passthrough to the <img> tag
+  const imgAttrs = {
+    'src': true,
+    'srcset': true,
+    'alt': true,
+    'height': true,
+    'width': true
+  }
+
+  function getAmpAttrs(input) {
+    return Object.keys(input).reduce((attrs, attrName) => {
+      if (attrName in ampAttrs) {
+        attrs[attrName] = input[attrName];
+      }
+      return attrs;
+    }, {});
+  }
+
+  function getImgAttrs(input) {
+    return Object.keys(input).reduce((attrs, attrName) => {
+      if (attrName in imgAttrs || !(attrName in ampAttrs)) {
+        attrs[attrName] = input[attrName];
+      }
+      return attrs;
+    }, {});
+  }
+
+}
 <!-- if <amp-img> has nested tags then we will output picture element, otherwise it will be an IMG -->
-$ const { src, srcset, sizes, alt = "", height, width, layout, heights, media, class: classList } = input;
+$ const { src, srcset } = input;
 <!-- currently only WebP image must be acompained by type attribute at <picture> <source> -->
 $ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
 
 <if(out.global.amp)>
-  $!{ampImgRenderer(input, !!input.renderBody)}
-  <if(input.renderBody)>
-    <!-- we have two nested componenets -->
-    <include(input) />
-    $!{'</amp-img>'}
-  </if>
+  $ {
+    if (!src && !srcset)
+      throw new Error(
+        `Either src or srcset attribute is required for AMP-IMG tag`,
+      );
+  }
+  <${'AMP-IMG'} ${getAmpAttrs(input)}>
+    <include(input) if(input.renderBody) />
+  </>
 </if>
 <else>
-  <picture if(input.renderBody) class=classList>
-    <source type=type srcset=(srcset || src) sizes=sizes media=media>
+  <picture if(input.renderBody) class=input.class>
+    <source type=type srcset=(srcset || src) sizes=input.sizes media=input.media>
     <include(input) />
   </picture>
-  <img else src=src srcset=srcset sizes=sizes alt=alt height=height width=width class=classList />
+  <img else ${getImgAttrs(input)}/>
 </else>
