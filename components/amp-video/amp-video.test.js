@@ -28,6 +28,7 @@ describe('amp-video', () => {
     document.body.innerHTML = AmpVideo.renderToString({
       src: 'https://localhost',
       controls: true,
+      playsinline: true,
     });
 
     const els = document.getElementsByTagName('video');
@@ -35,6 +36,7 @@ describe('amp-video', () => {
     const videoEl = els[0];
     expect(videoEl.getAttribute('src')).toBe('https://localhost');
     expect(videoEl.hasAttribute('controls')).toBeTruthy();
+    expect(videoEl.hasAttribute('playsinline')).toBeTruthy();
     expect(videoEl.childElementCount).toBe(0);
   });
 

@@ -9,6 +9,7 @@ static {
     'crossorigin': true,
     'height': true,
     'width': true,
+    'id':  true,
 
     // Common AMP attributes:
     'fallback': true,
@@ -32,6 +33,9 @@ static {
     'muted': true,
     'height': true,
     'width': true,
+    'id': true,
+    'preload': true,
+    'playsinline': true,
   }
 
   function getAmpAttrs(input) {
@@ -57,10 +61,10 @@ static {
 $ const { src } = input;
 <if(out.global.amp)>
   $ {
-            if (!src && !input.renderBody)
-              throw new Error(
-                `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
-              );
+              if (!src && !input.renderBody)
+                throw new Error(
+                  `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
+                );
   }
   $ out.global.ampScripts = out.global.ampScripts || {};
   $ out.global.ampScripts['amp-video'] = 'https://cdn.ampproject.org/v0/amp-video-0.1.js';
