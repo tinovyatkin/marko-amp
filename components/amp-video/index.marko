@@ -23,7 +23,7 @@ static {
   // We just need to list out the attributes that are common with
   // the <amg-video> attributes since unrecognized attributes will
   // passthrough to the <video> tag
-  const imgAttrs = {
+  const videoAttrs = {
     'src': true,
     'poster': true,
     'autoplay': true,
@@ -49,7 +49,7 @@ static {
 
   function getVideoAttrs(input) {
     return Object.keys(input).reduce((attrs, attrName) => {
-      if (attrName in imgAttrs || !(attrName in ampAttrs)) {
+      if (attrName in videoAttrs) {
         attrs[attrName] = input[attrName];
       }
       return attrs;
@@ -61,10 +61,10 @@ static {
 $ const { src } = input;
 <if(out.global.amp)>
   $ {
-              if (!src && !input.renderBody)
-                throw new Error(
-                  `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
-                );
+      if (!src && !input.renderBody)
+        throw new Error(
+          `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
+        );
   }
   $ out.global.ampScripts = out.global.ampScripts || {};
   $ out.global.ampScripts['amp-video'] = 'https://cdn.ampproject.org/v0/amp-video-0.1.js';

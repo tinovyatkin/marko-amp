@@ -12,5 +12,8 @@
   "@on": "string",
   "@class": "string",
   "@layout": "string",
+  "@id": "string",
+  "@preload": "string",
+  "@playsinline": "string",
   "@*": "string"
 }
