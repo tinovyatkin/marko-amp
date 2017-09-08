@@ -12,3 +12,4 @@ We will implement only tags that have minimal or none runtime functionality as t
 
 -   `<amp-boilerplate>` - must be inserted into `<head>` of the template
 -   `<amp-img>`
+-   `<amp-video>` - must be accompained by `<amp-boilerplate>` in the document `<head>` to correctly inject required script loader

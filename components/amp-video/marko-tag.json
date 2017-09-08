@@ -1,0 +1,13 @@
+{
+  "@src": "string",
+  "@poster": "string",
+  "@autoplay": "expression",
+  "@controls": "expression",
+  "@loop": "expression",
+  "@crossorigin": "string",
+  "@muted": "expression",
+  "@noloading": "string",
+  "@on": "string",
+  "@class": "string",
+  "@*": "string"
+}

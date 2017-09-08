@@ -2,8 +2,8 @@ static {
   function collectAmpScripts(out) {
     const asyncOut = out.beginAsync({ last: true });
     out.once('last', () => {
-      if (Array.isArray(out.global.ampScripts)) {
-        out.global.ampScripts.forEach(({ customElement, src }) => {
+      if ('ampScripts' in out.global) {
+        Object.entries(out.global.ampScripts).forEach(([customElement, src]) => {
           asyncOut.write(`<script async custom-element="${customElement}" src="${src}"></script>`)
         })
       }

@@ -1,0 +1,70 @@
+static {
+  const ampAttrs = {
+    // <amp-video> attrs:
+    'src': true,
+    'poster': true,
+    'autoplay': true,
+    'controls': true,
+    'loop': true,
+    'crossorigin': true,
+    'width': true,
+
+    // Common AMP attributes:
+    'fallback': true,
+    'heights': true,
+    'layout': true,
+    'media': true,
+    'noloading': true,
+    'on': true,
+    'placeholder': true,
+  };
+  // We just need to list out the attributes that are common with
+  // the <amg-video> attributes since unrecognized attributes will
+  // passthrough to the <video> tag
+  const imgAttrs = {
+    'src': true,
+    'poster': true,
+    'autoplay': true,
+    'controls': true,
+    'loop': true,
+    'crossorigin': true,
+    'muted': true,
+  }
+
+  function getAmpAttrs(input) {
+    return Object.keys(input).reduce((attrs, attrName) => {
+      if (attrName in ampAttrs) {
+        attrs[attrName] = input[attrName];
+      }
+      return attrs;
+    }, {});
+  }
+
+  function getVideoAttrs(input) {
+    return Object.keys(input).reduce((attrs, attrName) => {
+      if (attrName in imgAttrs || !(attrName in ampAttrs)) {
+        attrs[attrName] = input[attrName];
+      }
+      return attrs;
+    }, {});
+  }
+
+}
+<!-- if <amp-img> has nested tags then we will output picture element, otherwise it will be an IMG -->
+$ const { src } = input;
+<if(out.global.amp)>
+  $ {
+        if (!src && !input.renderBody)
+          throw new Error(
+            `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
+          );
+  }
+  $ out.global.ampScripts = out.global.ampScripts || {};
+  $ out.global.ampScripts['amp-video'] = 'https://cdn.ampproject.org/v0/amp-video-0.1.js';
+  <${'AMP-VIDEO'} ${getAmpAttrs(input)}>
+    <include(input) if(input.renderBody)/>
+  </${'AMP-VIDEO'}>
+</if>
+<video else ${getVideoAttrs(input)}>
+  <include(input) if(input.renderBody)/>
+</video>
