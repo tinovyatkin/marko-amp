@@ -58,5 +58,6 @@ describe('amp-video', () => {
     const ampVideo = document.getElementsByTagName('amp-video')[0];
     expect(ampVideo).toBeDefined();
     expect(ampVideo.childElementCount).toBe(3);
+    expect(ampVideo.getAttribute('layout')).toBe('responsive');
   });
 });

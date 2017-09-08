@@ -5,9 +5,12 @@
   "@controls": "expression",
   "@loop": "expression",
   "@crossorigin": "string",
+  "@height": "string",
+  "@width": "string",
   "@muted": "expression",
   "@noloading": "string",
   "@on": "string",
   "@class": "string",
+  "@layout": "string",
   "@*": "string"
 }

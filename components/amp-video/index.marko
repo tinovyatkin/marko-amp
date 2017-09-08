@@ -7,6 +7,7 @@ static {
     'controls': true,
     'loop': true,
     'crossorigin': true,
+    'height': true,
     'width': true,
 
     // Common AMP attributes:
@@ -29,6 +30,8 @@ static {
     'loop': true,
     'crossorigin': true,
     'muted': true,
+    'height': true,
+    'width': true,
   }
 
   function getAmpAttrs(input) {
@@ -54,16 +57,16 @@ static {
 $ const { src } = input;
 <if(out.global.amp)>
   $ {
-        if (!src && !input.renderBody)
-          throw new Error(
-            `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
-          );
+            if (!src && !input.renderBody)
+              throw new Error(
+                `Either src attribute or <source> child(s) is required for AMP-VIDEO tag`,
+              );
   }
   $ out.global.ampScripts = out.global.ampScripts || {};
   $ out.global.ampScripts['amp-video'] = 'https://cdn.ampproject.org/v0/amp-video-0.1.js';
-  <${'AMP-VIDEO'} ${getAmpAttrs(input)}>
+  <${'amp-video'} ${getAmpAttrs(input)}>
     <include(input) if(input.renderBody)/>
-  </${'AMP-VIDEO'}>
+  </${'amp-video'}>
 </if>
 <video else ${getVideoAttrs(input)}>
   <include(input) if(input.renderBody)/>
