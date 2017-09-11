@@ -57,7 +57,7 @@ describe('amp-img', () => {
     const img = picture.lastElementChild;
     expect(img.src).toBe('images/mountains.jpg');
     expect(img.width).toBe(550);
-    expect(img.height).toBe(368);
+    expect(img.hasAttribute('height')).toBeFalsy();
     expect(img.alt).toBe('Mountains');
   });
 

@@ -1,4 +1,3 @@
-
 static {
   const ampAttrs = {
     // <amp-img> attrs:
@@ -42,7 +41,9 @@ static {
   function getImgAttrs(input) {
     return Object.keys(input).reduce((attrs, attrName) => {
       if (attrName in imgAttrs || !(attrName in ampAttrs)) {
-        attrs[attrName] = input[attrName];
+        // Don't add height for images with layout=responsive or fallback images
+        if (attrName !== 'height' || (input.layout !== 'responsive' && !input.fallback))
+          attrs[attrName] = input[attrName];
       }
       return attrs;
     }, {});
@@ -53,22 +54,21 @@ static {
 $ const { src, srcset } = input;
 <!-- currently only WebP image must be acompained by type attribute at <picture> <source> -->
 $ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
-
 <if(out.global.amp)>
   $ {
-    if (!src && !srcset)
-      throw new Error(
-        `Either src or srcset attribute is required for AMP-IMG tag`,
-      );
+        if (!src && !srcset)
+          throw new Error(
+            `Either src or srcset attribute is required for AMP-IMG tag`,
+          );
   }
-  <${'AMP-IMG'} ${getAmpAttrs(input)}>
-    <include(input) if(input.renderBody) />
-  </>
+  <${'amp-img'} ${getAmpAttrs(input)}>
+    <include(input) if(input.renderBody)/>
+  </${'amp-img'}>
 </if>
 <else>
   <picture if(input.renderBody) class=input.class>
-    <source type=type srcset=(srcset || src) sizes=input.sizes media=input.media>
-    <include(input) />
+    <source type=type srcset=(srcset || src) sizes=input.sizes media=input.media/>
+    <include(input)/>
   </picture>
   <img else ${getImgAttrs(input)}/>
 </else>
