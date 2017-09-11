@@ -71,7 +71,6 @@ describe('amp-video', () => {
     // check that it rendered body elements too
     const video = document.getElementsByTagName('video')[0];
     expect(video).toBeDefined();
-    console.log(video.outerHTML);
     expect(video.childElementCount).toBe(3);
     expect(video.hasAttribute('layout')).toBeFalsy();
     expect(video.hasAttribute('playsinline')).toBeTruthy();
