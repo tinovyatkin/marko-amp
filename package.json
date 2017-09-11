@@ -42,9 +42,9 @@
   "devDependencies": {
     "@destinationstransfers/eslint-config": "^1.0.2",
     "eslint": "^4.6.1",
-    "eslint-plugin-jest": "^21.0.0",
+    "eslint-plugin-jest": "^21.0.2",
     "eslint-plugin-node": "^5.1.1",
-    "jest": "^21.0.1",
+    "jest": "^21.0.2",
     "marko": "^4.4.28",
     "npmpub": "^3.1.0",
     "remark-cli": "^4.0.0",
