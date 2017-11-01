@@ -8,7 +8,7 @@
     "release": "npmpub"
   },
   "engines": {
-    "node": "^8"
+    "node": ">=8"
   },
   "files": [
     "components",
