@@ -1,6 +1,6 @@
 {
   "name": "marko-amp",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Marko taglib for Accelerated Mobile Pages custom tags",
   "main": "index.js",
   "scripts": {
