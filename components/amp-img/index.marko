@@ -49,17 +49,21 @@ static {
     }, {});
   }
 
+  function getType(src, srcset) {
+    if ((src && /\.webp$/i.test(src)) || (srcset && srcset.split(',').find(p => /\.webp/i.test(p)))) return "image/webp";
+    return undefined;
+  }
+
 }
 <!-- if <amp-img> has nested tags then we will output picture element, otherwise it will be an IMG -->
 $ const { src, srcset } = input;
 <!-- currently only WebP image must be acompained by type attribute at <picture> <source> -->
-$ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
 <if(out.global.amp)>
   $ {
-        if (!src && !srcset)
-          throw new Error(
-            `Either src or srcset attribute is required for AMP-IMG tag`,
-          );
+          if (!src && !srcset)
+            throw new Error(
+              `Either src or srcset attribute is required for AMP-IMG tag`,
+            );
   }
   <${'amp-img'} ${getAmpAttrs(input)}>
     <include(input) if(input.renderBody)/>
@@ -67,7 +71,7 @@ $ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
 </if>
 <else>
   <picture if(input.renderBody) class=input.class>
-    <source type=type srcset=(srcset || src) sizes=input.sizes media=input.media/>
+    <source type=getType(src, srcset) srcset=(srcset || src) sizes=input.sizes media=input.media/>
     <include(input)/>
   </picture>
   <img else ${getImgAttrs(input)}/>
