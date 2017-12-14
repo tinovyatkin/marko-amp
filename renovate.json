@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "extends": ["config:js-lib"],
+  "baseBranch": "master",
+  "respectLatest": false,
+  "labels": ["dependencies"],
+  "timezone": "America/Santo_Domingo"
+}
