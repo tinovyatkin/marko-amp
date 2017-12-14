@@ -12,10 +12,10 @@ describe('amp-img', () => {
       $global: {
         amp: true,
       },
+      alt: 'Test alt',
+      height: 200,
       src: 'https://localhost',
       width: 170,
-      height: 200,
-      alt: 'Test alt',
     });
 
     const els = document.getElementsByTagName('amp-img');
@@ -29,10 +29,10 @@ describe('amp-img', () => {
 
   test('render <img> when out.global.amp is not true', () => {
     document.body.innerHTML = AmpImg.renderToString({
+      alt: 'Test alt',
+      height: 200,
       src: 'https://localhost',
       width: 170,
-      height: 200,
-      alt: 'Test alt',
     });
 
     const els = document.getElementsByTagName('img');
@@ -47,6 +47,7 @@ describe('amp-img', () => {
   test('Nested template HTML render', () => {
     // render normal version
     document.body.innerHTML = nestedAmpImg.renderToString();
+    console.log(document.body.innerHTML);
     const tags = document.getElementsByTagName('picture');
     expect(tags).toHaveLength(1);
     const picture = tags[0];
@@ -61,7 +62,7 @@ describe('amp-img', () => {
     expect(img.alt).toBe('Mountains');
   });
 
-  test('Nested template AMP render', async () => {
+  test('Nested template AMP render', () => {
     // render AMP version
     document.body.innerHTML = nestedAmpImg.renderToString({
       $global: {

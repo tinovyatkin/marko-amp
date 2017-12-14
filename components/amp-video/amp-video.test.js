@@ -12,8 +12,8 @@ describe('amp-video', () => {
       $global: {
         amp: true,
       },
-      src: 'https://localhost',
       autoplay: true,
+      src: 'https://localhost',
     });
 
     const els = document.getElementsByTagName('amp-video');
@@ -26,9 +26,9 @@ describe('amp-video', () => {
 
   test('render <video> when out.global.amp is not true', () => {
     document.body.innerHTML = AmpVideo.renderToString({
-      src: 'https://localhost',
       controls: true,
       playsinline: true,
+      src: 'https://localhost',
     });
 
     const els = document.getElementsByTagName('video');
@@ -64,7 +64,7 @@ describe('amp-video', () => {
     expect(ampVideo.hasAttribute('playsinline')).toBeFalsy();
   });
 
-  test('<video> only attributes must remain', async () => {
+  test('<video> only attributes must remain', () => {
     // Can't use sync rendering here, due to asyncFragment
     document.documentElement.innerHTML = nestedAmpVideo.renderToString();
 
