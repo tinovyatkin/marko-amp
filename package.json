@@ -4,11 +4,11 @@
   "description": "Marko taglib for Accelerated Mobile Pages custom tags",
   "main": "index.js",
   "scripts": {
-    "test": "jest && eslint *.js --ignore-path .gitignore && remark . --quiet --frail",
+    "test": "jest && eslint \"**/*.js\" --ignore-path .gitignore && remark . --quiet --frail",
     "release": "npmpub"
   },
   "engines": {
-    "node": "^8"
+    "node": ">=8.6"
   },
   "files": [
     "components",
@@ -33,23 +33,21 @@
     "custom",
     "tags"
   ],
-  "author": "tinovyatkin",
+  "author": "Tino Vyatkin <tino@vtkn.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tinovyatkin/marko-amp/issues"
   },
   "homepage": "https://github.com/tinovyatkin/marko-amp#readme",
   "devDependencies": {
-    "@destinationstransfers/eslint-config": "^1.0.2",
-    "eslint": "^4.9.0",
-    "eslint-plugin-jest": "^21.2.0",
-    "eslint-plugin-node": "^5.2.0",
-    "jest": "^21.0.2",
-    "marko": "^4.5.1",
+    "eslint": "^4.13.1",
+    "jest": "^21.2.1",
+    "marko": "^4.7.3",
     "npmpub": "^3.1.0",
     "remark-cli": "^4.0.0",
     "remark-preset-lint-consistent": "^2.0.1",
-    "remark-preset-lint-recommended": "^3.0.1"
+    "remark-preset-lint-recommended": "^3.0.1",
+    "@destinationstransfers/eslint-config": "^1.7.0"
   },
   "eslintConfig": {
     "plugins": [
@@ -64,9 +62,6 @@
     },
     "parserOptions": {
       "sourceType": "script"
-    },
-    "rules": {
-      "prefer-object-spread/prefer-object-spread": "off"
     }
   },
   "remarkConfig": {
@@ -76,7 +71,7 @@
     ]
   },
   "dependencies": {
-    "common-tags": "^1.4.0"
+    "common-tags": "^1.5.1"
   },
   "jest": {
     "verbose": true,
