@@ -56,7 +56,7 @@ describe('amp-img', () => {
     expect(source.type).toBe('image/webp');
     expect(source.srcset).toBe('images/mountains.webp');
     const img = picture.lastElementChild;
-    expect(img.src).toBe('images/mountains.jpg');
+    expect(img.src).toBe('http://localhost/images/mountains.jpg');
     expect(img.width).toBe(550);
     expect(img.hasAttribute('height')).toBeFalsy();
     expect(img.alt).toBe('Mountains');
