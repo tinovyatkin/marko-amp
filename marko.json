@@ -1,3 +1,26 @@
 {
-  "tags-dir": "./components"
+  "tags": {
+    "amp-boilerplate": {
+      "template": "./components/amp-boilerplate/index.marko"
+    },
+    "amp-img": {
+      "renderer": "./components/amp-img",
+      "attributes": {
+        "src": "string",
+        "srcset": "string",
+        "sizes": "string",
+        "alt": "string",
+        "attribution": "string",
+        "height": "string",
+        "width": "string",
+        "layout": "string",
+        "heights": "string",
+        "media": "string",
+        "noloading": "string",
+        "on": "string",
+        "class": "string",
+        "fallback": "expression"
+      }
+    }
+  }
 }
