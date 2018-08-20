@@ -19,7 +19,7 @@
     "url": "git+https://github.com/tinovyatkin/marko-amp.git"
   },
   "peerDependencies": {
-    "marko": "^4"
+    "marko": "^4.12"
   },
   "keywords": [
     "markojs",
@@ -43,7 +43,7 @@
     "@destinationstransfers/eslint-config": "^3.3.0",
     "eslint": "^5.4.0",
     "jest": "^23.5.0",
-    "marko": "^4.7.3",
+    "marko": "^4.12.5",
     "npmpub": "^4.1.0"
   },
   "eslintConfig": {
