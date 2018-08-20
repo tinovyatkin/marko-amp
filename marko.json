@@ -21,6 +21,26 @@
         "class": "string",
         "fallback": "expression"
       }
+    },
+    "amp-video": {
+      "renderer": "./components/amp-video",
+      "attributes": {
+        "src": "string",
+        "poster": "string",
+        "autoplay": "expression",
+        "controls": "expression",
+        "loop": "expression",
+        "crossorigin": "string",
+        "height": "string",
+        "width": "string",
+        "muted": "expression",
+        "noloading": "string",
+        "on": "string",
+        "class": "string",
+        "layout": "string",
+        "id": "string",
+        "preload": "string"
+      }
     }
   }
 }

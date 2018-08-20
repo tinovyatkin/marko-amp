@@ -62,6 +62,7 @@ describe('amp-video', () => {
     expect(ampVideo.childElementCount).toBe(3);
     expect(ampVideo.getAttribute('layout')).toBe('responsive');
     expect(ampVideo.hasAttribute('playsinline')).toBeFalsy();
+    expect(document.body).toMatchSnapshot();
   });
 
   test('<video> only attributes must remain', () => {
@@ -74,5 +75,6 @@ describe('amp-video', () => {
     expect(video.childElementCount).toBe(3);
     expect(video.hasAttribute('layout')).toBeFalsy();
     expect(video.hasAttribute('playsinline')).toBeTruthy();
+    expect(document.body).toMatchSnapshot();
   });
 });

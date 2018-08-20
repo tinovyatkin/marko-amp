@@ -1,64 +1,8 @@
-static {
-  const ampAttrs = {
-    // <amp-video> attrs:
-    'src': true,
-    'poster': true,
-    'autoplay': true,
-    'controls': true,
-    'loop': true,
-    'crossorigin': true,
-    'height': true,
-    'width': true,
-    'id':  true,
+import ampVideoRenderer from './amp-video';
 
-    // Common AMP attributes:
-    'fallback': true,
-    'heights': true,
-    'layout': true,
-    'media': true,
-    'noloading': true,
-    'on': true,
-    'placeholder': true,
-  };
-  // We just need to list out the attributes that are common with
-  // the <amg-video> attributes since unrecognized attributes will
-  // passthrough to the <video> tag
-  const videoAttrs = {
-    'src': true,
-    'poster': true,
-    'autoplay': true,
-    'controls': true,
-    'loop': true,
-    'crossorigin': true,
-    'muted': true,
-    'height': true,
-    'width': true,
-    'id': true,
-    'preload': true,
-    'playsinline': true,
-  }
-
-  function getAmpAttrs(input) {
-    return Object.keys(input).reduce((attrs, attrName) => {
-      if (attrName in ampAttrs) {
-        attrs[attrName] = input[attrName];
-      }
-      return attrs;
-    }, {});
-  }
-
-  function getVideoAttrs(input) {
-    return Object.keys(input).reduce((attrs, attrName) => {
-      if (attrName in videoAttrs) {
-        attrs[attrName] = input[attrName];
-      }
-      return attrs;
-    }, {});
-  }
-
-}
 <!-- if <amp-img> has nested tags then we will output picture element, otherwise it will be an IMG -->
-$ const { src } = input;
+$ const { src, poster, autoplay, controls, loop, crossorigin, muted, height, width, id, preload, playsinline } = input;
+
 <if(out.global.amp)>
   $ {
       if (!src && !input.renderBody)
@@ -68,10 +12,13 @@ $ const { src } = input;
   }
   $ out.global.ampScripts = out.global.ampScripts || {};
   $ out.global.ampScripts['amp-video'] = 'https://cdn.ampproject.org/v0/amp-video-0.1.js';
-  <${'amp-video'} ${getAmpAttrs(input)}>
-    <include(input) if(input.renderBody)/>
-  </${'amp-video'}>
+  $!{ampVideoRenderer(input, !!input.renderBody)}
+  <if(input.renderBody)>
+    <!-- we have two nested componenets -->
+    <include(input) />
+    $!{'</amp-video>'}
+  </if>
 </if>
-<video else ${getVideoAttrs(input)}>
+<video else src=src poster=poster autoplay=autoplay controls=controls loop=loop crossorigin=crossorigin muted=muted height=height width=width id=id preload=preload playsinline=playsinline>
   <include(input) if(input.renderBody)/>
 </video>
