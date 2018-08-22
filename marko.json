@@ -39,7 +39,8 @@
         "class": "string",
         "layout": "string",
         "id": "string",
-        "preload": "string"
+        "preload": "string",
+        "playsinline": "expression"
       }
     }
   }
