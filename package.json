@@ -42,7 +42,7 @@
   "devDependencies": {
     "@destinationstransfers/eslint-config": "3.6.0",
     "eslint": "5.4.0",
-    "jest": "23.5.0",
+    "jest": "23.6.0",
     "marko": "4.12.5",
     "npmpub": "4.1.0"
   },
