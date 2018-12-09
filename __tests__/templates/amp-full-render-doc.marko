@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- https://www.ampproject.org/docs/fundamentals/spec#required-markup -->
+<html ⚡=out.global.amp>
+  <head>
+    <amp-boilerplate/>
+    <link rel="canonical" href="full-page-render.html"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+  </head>
+  <body>
+    <!-- image tag -->
+    <amp-img alt="Mountains" width="550" height="368" src="images/mountains.webp">
+      <amp-img alt="Mountains" fallback width="550" height="368" src="images/mountains.jpg"/>
+    </amp-img>
+    <!-- video tag -->
+    <amp-video controls width="640" height="360" layout="responsive" playsinline poster="images/kitten-playing.png">
+      <source src="videos/kitten-playing.webm" type="video/webm"/>
+      <source src="videos/kitten-playing.mp4" type="video/mp4"/>
+      <div fallback>
+        <p>This browser does not support the video element.</p>
+      </div>
+    </amp-video>
+  </body>
+</html>

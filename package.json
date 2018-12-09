@@ -4,8 +4,7 @@
   "description": "Marko taglib for Accelerated Mobile Pages custom tags",
   "main": "index.js",
   "scripts": {
-    "test": "jest && eslint \"**/*.js\" --ignore-path .gitignore",
-    "release": "npmpub"
+    "test": "jest && eslint \"**/*.js\" --ignore-path .gitignore"
   },
   "engines": {
     "node": ">=8.6"
@@ -19,7 +18,7 @@
     "url": "git+https://github.com/tinovyatkin/marko-amp.git"
   },
   "peerDependencies": {
-    "marko": "^4.12"
+    "marko": "^4.14"
   },
   "keywords": [
     "markojs",
@@ -44,15 +43,11 @@
     "eslint": "5.10.0",
     "jest": "23.6.0",
     "marko": "4.14.2",
-    "npmpub": "4.1.0"
+    "amphtml-validator": "^1.0.23"
   },
   "eslintConfig": {
-    "plugins": [
-      "node"
-    ],
     "extends": [
-      "@destinationstransfers",
-      "plugin:node/recommended"
+      "@destinationstransfers"
     ],
     "env": {
       "shared-node-browser": true
@@ -61,14 +56,17 @@
       "sourceType": "script"
     }
   },
-  "dependencies": {
-    "common-tags": "^1.8.0"
-  },
+  "dependencies": {},
   "jest": {
     "verbose": true,
     "bail": true,
     "testMatch": [
       "**/*.test.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "components/**/*.js",
+      "!**/*.test.js"
     ]
   }
 }
