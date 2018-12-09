@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/tinovyatkin/marko-amp#readme",
   "devDependencies": {
-    "@destinationstransfers/eslint-config": "3.6.0",
+    "@destinationstransfers/eslint-config": "3.7.0",
     "eslint": "5.10.0",
     "jest": "23.6.0",
     "marko": "4.14.2",
