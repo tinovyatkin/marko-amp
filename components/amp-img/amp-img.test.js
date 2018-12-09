@@ -8,28 +8,30 @@ const nestedAmpImg = require('marko').load(
 
 describe('amp-img', () => {
   test('render <amp-img> when out.global.amp is true', () => {
-    expect(
-      AmpImg.renderToString({
-        $global: {
-          amp: true,
-        },
-        alt: 'Test alt',
-        height: 200,
-        src: 'https://localhost',
-        width: 170,
-      }),
-    ).toMatchSnapshot();
+    const render = AmpImg.renderToString({
+      $global: {
+        amp: true,
+      },
+      alt: 'Test alt',
+      height: 200,
+      src: 'https://localhost',
+      width: 170,
+    });
+    expect(render).toMatchInlineSnapshot(
+      `"<amp-img src=\\"https://localhost\\" alt=\\"Test alt\\" height=\\"200\\" width=\\"170\\"></amp-img>"`,
+    );
   });
 
   test('render <img> when out.global.amp is not true', () => {
-    expect(
-      AmpImg.renderToString({
-        alt: 'Test alt',
-        height: 200,
-        src: 'https://localhost',
-        width: 170,
-      }),
-    ).toMatchSnapshot();
+    const render = AmpImg.renderToString({
+      alt: 'Test alt',
+      height: 200,
+      src: 'https://localhost',
+      width: 170,
+    });
+    expect(render).toMatchInlineSnapshot(
+      `"<img src=\\"https://localhost\\" alt=\\"Test alt\\" height=200 width=170>"`,
+    );
   });
 
   test('Nested template HTML render', () => {

@@ -3,7 +3,3 @@
 exports[`amp-img Nested template AMP render 1`] = `"<amp-img src=\\"images/mountains.webp\\" alt=\\"Mountains\\" height=\\"368\\" width=\\"550\\"><amp-img src=\\"images/mountains.jpg\\" alt=\\"Mountains\\" height=\\"368\\" width=\\"550\\" fallback></amp-img></amp-img>"`;
 
 exports[`amp-img Nested template HTML render 1`] = `"<picture><source type=\\"image/webp\\" srcset=\\"images/mountains.webp\\"><img src=\\"images/mountains.jpg\\" alt=\\"Mountains\\" width=\\"550\\"></picture>"`;
-
-exports[`amp-img render <amp-img> when out.global.amp is true 1`] = `"<amp-img src=\\"https://localhost\\" alt=\\"Test alt\\" height=\\"200\\" width=\\"170\\"></amp-img>"`;
-
-exports[`amp-img render <img> when out.global.amp is not true 1`] = `"<img src=\\"https://localhost\\" alt=\\"Test alt\\" height=200 width=170>"`;

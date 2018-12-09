@@ -14,9 +14,13 @@ $ const type = /\.webp$/i.test(src) ? "image/webp" : undefined;
   </if>
 </if>
 <else>
-  <picture if(input.renderBody) class=classList>
-    <source type=type srcset=(srcset || src) sizes=sizes media=media>
-    <include(input) />
-  </picture>
-  <img else src=src srcset=srcset sizes=sizes alt=alt height=(!input.fallback && height) width=width class=classList />
+  <if(input.renderBody)>
+    <picture  class=classList>
+      <source type=type srcset=(srcset || src) sizes=sizes media=media>
+      <include(input) />
+    </picture>
+  </if>
+  <else>
+    <img src=src srcset=srcset sizes=sizes alt=alt height=(!input.fallback && height) width=width class=classList />
+  </else>
 </else>
