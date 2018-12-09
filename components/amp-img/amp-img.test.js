@@ -7,7 +7,7 @@ const nestedAmpImg = require('marko').load(
 );
 
 describe('amp-img', () => {
-  test('render <amp-img> when out.global.amp is true', async () => {
+  test('render <amp-img> when out.global.amp is true', () => {
     const render = AmpImg.renderToString({
       $global: {
         amp: true,
