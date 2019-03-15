@@ -42,7 +42,7 @@
     "@destinationstransfers/eslint-config": "3.12.0",
     "eslint": "5.15.2",
     "jest": "24.5.0",
-    "marko": "4.14.25",
+    "marko": "4.16.1",
     "amphtml-validator": "1.0.23"
   },
   "eslintConfig": {
