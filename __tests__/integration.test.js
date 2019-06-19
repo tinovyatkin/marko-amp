@@ -1,13 +1,12 @@
 'use strict';
 
 const amphtmlValidator = require('amphtml-validator');
-
 const Template = require('marko').load(
   require.resolve('./templates/amp-full-render-doc.marko'),
 );
 
 describe('Full page render and validation', () => {
-  test('render and validate AMP version', async () => {
+  it('render and validate AMP version', async () => {
     const render = await Template.render({
       $global: {
         amp: true,

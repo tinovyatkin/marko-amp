@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`amp-video <video> only attributes must remain 1`] = `
+exports[`amp-video VIDEO only attributes must remain 1`] = `
 <body>
   <video
     controls=""

@@ -5,16 +5,3 @@ git:
 language: node_js
 node_js:
 - node
-
-branches:
-  only:
-    - master
-
-cache:
-  directories:
-    - node_modules
-
-
-before_install:
-  # remove outdated deps, assists with cache maintenance
-  - npm prune

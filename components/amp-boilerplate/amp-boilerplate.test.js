@@ -7,7 +7,7 @@ const AmpBoilerplateScripts = require('marko').load(
 );
 
 describe('amp-boilerplate', () => {
-  test('basic AMP rendering', async () => {
+  it('basic AMP rendering', async () => {
     // Can't use sync rendering here, due to asyncFragment
     document.head.innerHTML = (await AmpBoilerplate.render({
       $global: {
@@ -22,11 +22,11 @@ describe('amp-boilerplate', () => {
     );
   });
 
-  test('empty HTML rendering', () => {
+  it('empty HTML rendering', () => {
     expect(AmpBoilerplate.renderToString()).toHaveLength(0);
   });
 
-  test('additional AMP scripts collecting', async () => {
+  it('additional AMP scripts collecting', async () => {
     // Can't use sync rendering here, due to asyncFragment
     document.documentElement.innerHTML = (await AmpBoilerplateScripts.render({
       $global: {

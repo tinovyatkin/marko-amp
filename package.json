@@ -18,7 +18,7 @@
     "url": "git+https://github.com/tinovyatkin/marko-amp.git"
   },
   "peerDependencies": {
-    "marko": "^4.14"
+    "marko": "^4.18"
   },
   "keywords": [
     "markojs",
@@ -39,18 +39,22 @@
   },
   "homepage": "https://github.com/tinovyatkin/marko-amp#readme",
   "devDependencies": {
-    "@destinationstransfers/eslint-config": "6.4.2",
+    "@destinationstransfers/eslint-plugin": "2.4.24",
+    "@types/jest": "24.0.15",
+    "amphtml-validator": "1.0.23",
     "eslint": "5.16.0",
     "jest": "24.8.0",
-    "marko": "4.17.2",
-    "amphtml-validator": "1.0.23"
+    "marko": "4.17.2"
   },
   "eslintConfig": {
-    "extends": [
+    "plugins": [
       "@destinationstransfers"
     ],
+    "extends": [
+      "plugin:@destinationstransfers/recommended"
+    ],
     "env": {
-      "shared-node-browser": true
+      "node": true
     },
     "parserOptions": {
       "sourceType": "script"
