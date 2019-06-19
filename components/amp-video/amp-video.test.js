@@ -7,7 +7,7 @@ const nestedAmpVideo = require('marko').load(
 );
 
 describe('amp-video', () => {
-  test('render <amp-video> when out.global.amp is true', () => {
+  it('render <amp-video> when out.global.amp is true', () => {
     document.body.innerHTML = AmpVideo.renderToString({
       $global: {
         amp: true,
@@ -24,7 +24,7 @@ describe('amp-video', () => {
     expect(ampVideoEl.childElementCount).toBe(0);
   });
 
-  test('render <video> when out.global.amp is not true', () => {
+  it('render <video> when out.global.amp is not true', () => {
     document.body.innerHTML = AmpVideo.renderToString({
       controls: true,
       playsinline: true,
@@ -40,7 +40,7 @@ describe('amp-video', () => {
     expect(videoEl.childElementCount).toBe(0);
   });
 
-  test('adds script element to head when rendering with <amp-boilerplate>', async () => {
+  it('adds script element to head when rendering with <amp-boilerplate>', async () => {
     // Can't use sync rendering here, due to asyncFragment
     document.documentElement.innerHTML = (await nestedAmpVideo.render({
       $global: {
@@ -65,7 +65,7 @@ describe('amp-video', () => {
     expect(document.body).toMatchSnapshot();
   });
 
-  test('<video> only attributes must remain', () => {
+  it('<video> only attributes must remain', () => {
     // Can't use sync rendering here, due to asyncFragment
     document.documentElement.innerHTML = nestedAmpVideo.renderToString();
 
