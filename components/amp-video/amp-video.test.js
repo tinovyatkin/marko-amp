@@ -65,7 +65,7 @@ describe('amp-video', () => {
     expect(document.body).toMatchSnapshot();
   });
 
-  it('<video> only attributes must remain', () => {
+  it('VIDEO only attributes must remain', () => {
     // Can't use sync rendering here, due to asyncFragment
     document.documentElement.innerHTML = nestedAmpVideo.renderToString();
 
