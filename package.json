@@ -44,7 +44,7 @@
     "amphtml-validator": "1.0.23",
     "eslint": "6.0.1",
     "jest": "24.8.0",
-    "marko": "4.18.4"
+    "marko": "4.18.5"
   },
   "eslintConfig": {
     "plugins": [
