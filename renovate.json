@@ -4,5 +4,6 @@
   "baseBranch": "master",
   "respectLatest": false,
   "labels": ["dependencies"],
-  "timezone": "America/Santo_Domingo"
+  "timezone": "America/Santo_Domingo",
+  "automerge": true
 }
